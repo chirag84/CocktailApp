@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ProductView: View {
     @StateObject var viewModel: ProductViewModel
-   
-       var body: some View {
+    
+    var body: some View {
         NavigationView {
             ZStack {
                 Color.white.edgesIgnoringSafeArea(.all)
@@ -18,7 +18,9 @@ struct ProductView: View {
                     // Product row
                     ScrollView(.vertical, showsIndicators: false) {
                         ForEach(viewModel.products, id: \.id) { product in
+                            NavigationLink(destination: ProductDetailView(product: product), label: {
                                 ProductRow(product: product)
+                            })
                             
                         }
                     }

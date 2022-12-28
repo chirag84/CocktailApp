@@ -11,6 +11,9 @@
 		14EBD97E295C6FD50093EA7A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBD97D295C6FD50093EA7A /* APIService.swift */; };
 		14EBD980295C70810093EA7A /* ProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBD97F295C70810093EA7A /* ProductRow.swift */; };
 		14EBD983295C715F0093EA7A /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBD982295C715F0093EA7A /* TabBarView.swift */; };
+		14EBD986295C73D20093EA7A /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBD985295C73D20093EA7A /* ProductDetailView.swift */; };
+		14EBD988295C74050093EA7A /* ProdcutDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBD987295C74050093EA7A /* ProdcutDetailViewModel.swift */; };
+		14EBD98A295C745A0093EA7A /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBD989295C745A0093EA7A /* RatingView.swift */; };
 		14EF59FA295C106600AFB165 /* CocktailAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EF59F9295C106600AFB165 /* CocktailAppApp.swift */; };
 		14EF59FC295C106600AFB165 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EF59FB295C106600AFB165 /* ProductView.swift */; };
 		14EF59FE295C106800AFB165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14EF59FD295C106800AFB165 /* Assets.xcassets */; };
@@ -45,6 +48,9 @@
 		14EBD97D295C6FD50093EA7A /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		14EBD97F295C70810093EA7A /* ProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRow.swift; sourceTree = "<group>"; };
 		14EBD982295C715F0093EA7A /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		14EBD985295C73D20093EA7A /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		14EBD987295C74050093EA7A /* ProdcutDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdcutDetailViewModel.swift; sourceTree = "<group>"; };
+		14EBD989295C745A0093EA7A /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		14EF59F6295C106600AFB165 /* CocktailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocktailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14EF59F9295C106600AFB165 /* CocktailAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailAppApp.swift; sourceTree = "<group>"; };
 		14EF59FB295C106600AFB165 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
@@ -97,8 +103,17 @@
 			isa = PBXGroup;
 			children = (
 				14EBD982295C715F0093EA7A /* TabBarView.swift */,
+				14EBD989295C745A0093EA7A /* RatingView.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		14EBD984295C73B80093EA7A /* Product Detail */ = {
+			isa = PBXGroup;
+			children = (
+				14EBD985295C73D20093EA7A /* ProductDetailView.swift */,
+			);
+			path = "Product Detail";
 			sourceTree = "<group>";
 		};
 		14EF59ED295C106600AFB165 = {
@@ -173,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				14EF5A2C295C12A200AFB165 /* Product */,
+				14EBD984295C73B80093EA7A /* Product Detail */,
 				14EF5A2D295C12AC00AFB165 /* Favourite */,
 			);
 			path = Views;
@@ -182,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				14EBD97A295C6F5A0093EA7A /* ProductViewModel.swift */,
+				14EBD987295C74050093EA7A /* ProdcutDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -347,7 +364,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14EBD98A295C745A0093EA7A /* RatingView.swift in Sources */,
 				14EF59FC295C106600AFB165 /* ProductView.swift in Sources */,
+				14EBD988295C74050093EA7A /* ProdcutDetailViewModel.swift in Sources */,
 				14EF59FA295C106600AFB165 /* CocktailAppApp.swift in Sources */,
 				14EBD983295C715F0093EA7A /* TabBarView.swift in Sources */,
 				14EF5A28295C117A00AFB165 /* Product.swift in Sources */,
@@ -355,6 +374,7 @@
 				14EBD980295C70810093EA7A /* ProductRow.swift in Sources */,
 				14EBD97E295C6FD50093EA7A /* APIService.swift in Sources */,
 				14EBD97B295C6F5A0093EA7A /* ProductViewModel.swift in Sources */,
+				14EBD986295C73D20093EA7A /* ProductDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import Kingfisher
 struct ProductRow: View {
     
     var product: Product
-   
+    
     var body: some View {
         
         VStack(alignment: .leading) {
@@ -65,7 +65,6 @@ struct ProductRow: View {
                 Spacer()
             }
             
-            
         }
         .padding(16)
         .background(Color.init(red: 250/255, green:  250/255, blue:  250/255))
@@ -77,7 +76,6 @@ struct ProductRow_Previews: PreviewProvider {
         
         NavigationView {
             ProductRow(product: Product(id: "23124", title: "Diamond Label Shiraz", imageURL: "https://media.danmurphys.com.au/dmo/product/23124-1.png?impolicy=PROD_SM"))
-            
         }
         
     }
