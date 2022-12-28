@@ -9,9 +9,31 @@ import SwiftUI
 
 struct FavouriteView: View {
     
-    @StateObject var viewModel: ProductViewModel
+    @StateObject var favorites = Favorites()
+    @EnvironmentObject var viewModel: ProductViewModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+     NavigationView {
+         ZStack {
+             Color.white.edgesIgnoringSafeArea(.all)
+             VStack(alignment: .leading) {
+                 // Product row
+                 ScrollView(.vertical, showsIndicators: false) {
+                     ForEach(viewModel.products, id: \.id) { product in
+                         NavigationLink(destination: ProductDetailView(product: product), label: {
+                             if UserDefaults.standard.object(forKey: product.id) != nil {
+                                 ProductRow(product: product, favorites: favorites)
+                             }
+                             
+                         })
+                     }
+                 }
+             }
+         }
+         .navigationTitle("Favourites")
+         .navigationBarTitleDisplayMode(.inline)
+
+     }
+     
+ }
 }

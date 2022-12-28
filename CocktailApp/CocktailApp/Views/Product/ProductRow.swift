@@ -11,12 +11,12 @@ import Kingfisher
 struct ProductRow: View {
     
     var product: Product
+    @StateObject var favorites = Favorites()
     
     var body: some View {
         
         VStack(alignment: .leading) {
             HStack {
-                
                 // Product image
                 KFImage(URL(string: product.imageURL ?? ""))
                     .placeholder {
@@ -31,7 +31,6 @@ struct ProductRow: View {
                     .background(Color.clear)
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    
                     // Title
                     Text(product.title)
                         .font(.headline)
@@ -39,7 +38,7 @@ struct ProductRow: View {
                     // Price
                     Text(String("$\(product.price?.first?.value ?? 0)"))
                         .font(.subheadline)
-                        .foregroundColor(.red.opacity(0.6))
+                        .foregroundColor(.red.opacity(0.8))
                     
                     // Add to cart & Favourites
                     HStack(alignment: .center, spacing: 30){
@@ -64,7 +63,6 @@ struct ProductRow: View {
                 }
                 Spacer()
             }
-            
         }
         .padding(16)
         .background(Color.init(red: 250/255, green:  250/255, blue:  250/255))

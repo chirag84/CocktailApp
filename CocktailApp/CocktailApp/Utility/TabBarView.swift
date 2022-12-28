@@ -10,22 +10,21 @@ import SwiftUI
 struct TabBarView: View {
     
     @State var selectedTab = 0
- 
+    
     var body: some View {
         TabView(selection: $selectedTab) {
             
             ProductView(viewModel: ProductViewModel(dataService: APIService()))
-            .tabItem {
-              Label("Product", systemImage: "house.fill")
-            }
-            .tag(0)
-          
+                .tabItem {
+                    Label("Product", systemImage: "house.fill")
+                }
+                .tag(0)
             
-            Text(String("Tab 2"))
-            .tabItem {
-              Label("Favourites", systemImage: "heart.fill")
-            }
-            .tag(1)
+            FavouriteView().environmentObject(ProductViewModel(dataService: APIService()))
+                .tabItem {
+                    Label("Favourites", systemImage: "heart.fill")
+                }
+                .tag(1)
         }
         .accentColor(.black)
     }

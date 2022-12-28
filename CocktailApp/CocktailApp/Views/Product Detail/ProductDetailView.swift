@@ -9,6 +9,9 @@ import SwiftUI
 import Kingfisher
 
 struct ProductDetailView: View {
+    
+    @State private var favouriteItems : [String] = [String]()
+    @EnvironmentObject var favorites: Favorites
     @ObservedObject var viewModel: ProdcutDetailViewModel
     
     init(product: Product) {
@@ -35,9 +38,28 @@ struct ProductDetailView: View {
                     .padding()
                 
                 Button(action: {
+                    if UserDefaults.standard.object(forKey: viewModel.product.id) != nil {
+                        UserDefaults.standard.removeObject(forKey: viewModel.product.id)
+                        
+                    }else {
+                        UserDefaults.standard.set(favouriteItems, forKey: viewModel.product.id)
+                    }
+                    
+                    if favorites.contains(viewModel.product) {
+                        favorites.remove(viewModel.product)
+                        
+                    } else {
+                        favorites.add(viewModel.product)
+                    }
                     
                 }, label: {
-                    Image(systemName: "heart")
+                    if UserDefaults.standard.object(forKey: viewModel.product.id) != nil {
+                        Image(systemName: viewModel.isFavourite ? "heart.fill" : "heart")
+                            .foregroundColor(.red)
+                    }else{
+                        Image(systemName: "heart")
+                    }
+                    
                 })
                 
             }

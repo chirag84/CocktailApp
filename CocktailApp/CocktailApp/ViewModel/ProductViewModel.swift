@@ -9,13 +9,13 @@ import SwiftUI
 
 class ProductViewModel: ObservableObject {
     @Published var products = [Product]()
+    @Published var isHideLoader: Bool = false
     
     let isPostDetail: Bool = false
     var dataService: APIService
     
     init(dataService: APIService) {
         self.dataService = dataService
-       
         fetchProductList()
     }
     
@@ -23,6 +23,7 @@ class ProductViewModel: ObservableObject {
         dataService.getProductList { [weak self] products in
             DispatchQueue.main.async {
                 self?.products = products
+                self?.isHideLoader = true
             }
         }
     }
