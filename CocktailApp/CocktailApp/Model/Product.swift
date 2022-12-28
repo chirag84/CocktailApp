@@ -15,23 +15,15 @@ struct ProductList: Codable {
 struct Product: Codable {
     var id: String
     var title: String
-    var citrusId: String
+    var citrusId: String?
     var imageURL: String?
     var price: [Price]?
     var brand: String?
     var badges: [String]?
-    var ratingCount: Float
-    var messages: Messages
-    var isAddToCartEnable: Bool
-    var addToCartButtonText: String
-//    var isInTrolley, isInWishlist: Bool?
-//    var purchaseTypes: [PurchaseType]?
-//    var isFindMeEnable: Bool?
-//    var saleUnitPrice: Double?
-//    var totalReviewCount: Int?
-//    var isDeliveryOnly, isDirectFromSupplier: Bool?
-    
-    var isFavorite = false
+    var ratingCount: Float?
+    var messages: Messages?
+    var isAddToCartEnable: Bool?
+    var addToCartButtonText: String?
 }
 
 struct Messages: Codable {
