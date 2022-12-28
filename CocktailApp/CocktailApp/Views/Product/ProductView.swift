@@ -40,7 +40,7 @@ struct ProductView: View {
         }
         .environmentObject(favorites)
         .environmentObject(viewModel)
-        
+     
     }
 }
 

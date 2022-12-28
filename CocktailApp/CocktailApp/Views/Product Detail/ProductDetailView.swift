@@ -12,10 +12,10 @@ struct ProductDetailView: View {
     
     @State private var favouriteItems : [String] = [String]()
     @EnvironmentObject var favorites: Favorites
-    @ObservedObject var viewModel: ProdcutDetailViewModel
+    @ObservedObject var viewModel: ProductDetailViewModel
     
     init(product: Product) {
-        viewModel = ProdcutDetailViewModel(product: product)
+        viewModel = ProductDetailViewModel(product: product)
     }
     
     var body: some View {

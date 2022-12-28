@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ProdcutDetailViewModel: ObservableObject {
+class ProductDetailViewModel: ObservableObject {
     
     let product: Product
     @Published var isFavourite: Bool = false
