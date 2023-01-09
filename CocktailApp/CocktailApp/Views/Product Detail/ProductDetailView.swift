@@ -38,11 +38,11 @@ struct ProductDetailView: View {
                     .padding()
                 
                 Button(action: {
-                    if UserDefaults.standard.object(forKey: viewModel.product.id) != nil {
-                        UserDefaults.standard.removeObject(forKey: viewModel.product.id)
+                    if UserDefaults.standard.object(forKey: viewModel.product.id ?? "0") != nil {
+                        UserDefaults.standard.removeObject(forKey: viewModel.product.id ?? "0")
                         
                     }else {
-                        UserDefaults.standard.set(favouriteItems, forKey: viewModel.product.id)
+                        UserDefaults.standard.set(favouriteItems, forKey: viewModel.product.id ?? "0")
                     }
                     
                     if favorites.contains(viewModel.product) {
@@ -53,7 +53,7 @@ struct ProductDetailView: View {
                     }
                     
                 }, label: {
-                    if UserDefaults.standard.object(forKey: viewModel.product.id) != nil {
+                    if UserDefaults.standard.object(forKey: viewModel.product.id ?? "0") != nil {
                         Image(systemName: viewModel.isFavourite ? "heart.fill" : "heart")
                             .foregroundColor(.red)
                     }else{
@@ -65,7 +65,7 @@ struct ProductDetailView: View {
             }
             
             // Title
-            Text(viewModel.product.title)
+            Text(viewModel.product.title ?? "")
                 .font(.headline)
             
             

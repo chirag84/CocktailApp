@@ -11,7 +11,7 @@ protocol DataService {
     func getProductList(completion: @escaping ([Product]) -> Void)
 }
 
-class APIService: DataService {
+final class APIService: DataService {
     func getProductList(completion: @escaping ([Product]) -> Void) {
         
         guard let url = URL(string: "https://run.mocky.io/v3/2f06b453-8375-43cf-861a-06e95a951328") else {
@@ -21,9 +21,23 @@ class APIService: DataService {
         URLSession.shared.dataTask(with: url) { data, response, error in
             let product = try? JSONDecoder().decode(ProductList.self, from: data!)
                
-            completion(product?.products ?? [Product(id: "0", title: "")])
+            completion(product?.products ?? [Product()])
         }.resume()
         
     }
 
+}
+
+final class MockDataService: DataService {
+    func getProductList(completion: @escaping ([Product]) -> Void) {
+        
+        let response = ProductList(products: [
+            Product(id: "23124", title: "Diamond Label Shiraz", price: [Price(value: 9.4)], ratingCount: 4),
+            Product(id: "144469", title: "Shiraz", price: [Price(value: 17.95)], ratingCount: 4.3364),
+        ])
+        
+        completion(response.products ?? [Product()])
+    }
+    
+    
 }

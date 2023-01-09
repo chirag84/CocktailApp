@@ -15,18 +15,18 @@ class Favorites: ObservableObject {
     }
 
     func contains(_ product: Product) -> Bool {
-        products.contains(product.id)
+        products.contains(product.id ?? "0")
     }
 
     func add(_ product: Product) {
         objectWillChange.send()
-        products.insert(product.id)
+        products.insert(product.id ?? "0")
      
     }
 
     func remove(_ product: Product) {
         objectWillChange.send()
-        products.remove(product.id)
+        products.remove(product.id ?? "0")
        
     }
 }

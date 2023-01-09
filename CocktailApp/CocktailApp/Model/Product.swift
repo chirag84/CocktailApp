@@ -13,8 +13,8 @@ struct ProductList: Codable {
 }
 
 struct Product: Codable {
-    var id: String
-    var title: String
+    var id: String?
+    var title: String?
     var citrusId: String?
     var imageURL: String?
     var price: [Price]?
@@ -31,9 +31,9 @@ struct Messages: Codable {
 }
 
 struct Price: Codable {
-    var message: String
-    var value: Double
-    var isOfferPrice: Bool
+    var message: String?
+    var value: Double?
+    var isOfferPrice: Bool?
 }
 
 struct PurchaseType: Codable {

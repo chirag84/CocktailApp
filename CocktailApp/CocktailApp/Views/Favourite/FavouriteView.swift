@@ -21,7 +21,7 @@ struct FavouriteView: View {
                  ScrollView(.vertical, showsIndicators: false) {
                      ForEach(viewModel.products, id: \.id) { product in
                          NavigationLink(destination: ProductDetailView(product: product), label: {
-                             if UserDefaults.standard.object(forKey: product.id) != nil {
+                             if UserDefaults.standard.object(forKey: product.id ?? "0") != nil {
                                  ProductRow(product: product, favorites: favorites)
                              }
                              

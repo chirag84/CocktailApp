@@ -12,10 +12,11 @@ class ProductViewModel: ObservableObject {
     @Published var isHideLoader: Bool = false
     
     let isPostDetail: Bool = false
-    var dataService: APIService
+    private let dataService: DataService
     
-    init(dataService: APIService) {
+    init(dataService: DataService) {
         self.dataService = dataService
+      
         fetchProductList()
     }
     

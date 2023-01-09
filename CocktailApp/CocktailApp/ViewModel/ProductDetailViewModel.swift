@@ -15,7 +15,7 @@ class ProductDetailViewModel: ObservableObject {
     init(product: Product) {
         self.product = product
         
-        if UserDefaults.standard.object(forKey: product.id) != nil {
+        if UserDefaults.standard.object(forKey: product.id ?? "0") != nil {
             isFavourite = true
         }
     }

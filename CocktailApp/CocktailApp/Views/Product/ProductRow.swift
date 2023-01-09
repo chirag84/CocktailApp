@@ -32,7 +32,7 @@ struct ProductRow: View {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     // Title
-                    Text(product.title)
+                    Text(product.title ?? "")
                         .font(.headline)
                     
                     // Price
@@ -53,7 +53,7 @@ struct ProductRow: View {
                                 .cornerRadius(4.0)
                         })
                         
-                        if UserDefaults.standard.object(forKey: product.id) != nil {
+                        if UserDefaults.standard.object(forKey: product.id ?? "0") != nil {
                             Spacer()
                             Image(systemName: "heart.fill")
                                 .foregroundColor(.red)

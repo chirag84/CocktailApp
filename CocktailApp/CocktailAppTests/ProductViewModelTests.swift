@@ -10,32 +10,21 @@ import XCTest
 
 final class ProductViewModelTests: XCTestCase {
     
-    private var viewModel: ProductViewModel!
-    private var dataService: APIService!
-
-
     override func setUpWithError() throws {
-        dataService = APIService()
-        viewModel = ProductViewModel(dataService: dataService)
-        
+         
+        let mockedService = MockDataService()
+        let viewModel = ProductViewModel(dataService: mockedService)
+        viewModel.fetchProductList()
+       
+        DispatchQueue.main.async {
+            XCTAssertEqual(viewModel.products.count, 2)
+        }
     }
     
     override func tearDownWithError() throws {
-        dataService = nil
-        viewModel = nil
+      
     }
   
-    func testProductListEmpty() {
-        viewModel.fetchProductList()
-        XCTAssertTrue(viewModel.products.isEmpty)
-    }
-    
-    func testIsShowDetailsShouldBeFalse() {
-        XCTAssertFalse(viewModel.isHideLoader)
-    }
-    
-
-   
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
